@@ -1,41 +1,70 @@
-Sorteador de Números
---------------------
+# Sorteador de Números 🎲
 
-O **Sorteador de Números** é uma aplicação simples em HTML e JavaScript que permite ao usuário sortear um ou mais números aleatórios dentro de um intervalo específico. 
+Uma aplicação moderna e responsiva para sorteio de números aleatórios, desenvolvida com foco em boas práticas de engenharia de software, separação de responsabilidades e alta testabilidade.
 
-### Como usar
+## 🚀 Tecnologias
 
-Para utilizar o **Sorteador de Números**, basta seguir os passos abaixo:
+Este projeto foi construído utilizando as seguintes tecnologias:
 
-1.  Acesse a página do Conversor de Texto em [https://luizhanauer.github.io/Random-Number-Generator/](https://luizhanauer.github.io/Random-Number-Generator/).
-2.  Insira o número inicial e final do intervalo em que deseja sortear os números.
-3.  Insira a quantidade de números que deseja sortear. Lembre-se de que a quantidade não pode ser maior que o intervalo dos números.
-4.  Clique no botão "Sortear".
-5.  O resultado do sorteio será exibido na tela, bem como os números sorteados.
+* **Vue 3** (Composition API & `<script setup>`)
+* **TypeScript** (Tipagem estática e segurança)
+* **Tailwind CSS v4** (Estilização utilitária e design system)
+* **Vite** (Build tool ultrarrápido)
+* **Vitest** (Framework para testes unitários)
 
-### Como instalar localmente
+## 🏗️ Arquitetura e Boas Práticas
 
-Se desejar, você pode instalar o **Sorteador de Números** em seu computador localmente. Para fazer isso, siga as instruções abaixo:
+O projeto foi refatorado adotando conceitos de **Clean Architecture**, **Domain-Driven Design (DDD)** e **Object Calisthenics**.
 
-1.  Clone este repositório em sua máquina local usando o comando 
-```git clone https://github.com/seu-usuario/sorteador-de-numeros.git```
-3.  Navegue até o diretório do projeto.
-4.  Abra o arquivo `index.html` em um navegador para iniciar o aplicativo.
-5.  Siga as instruções acima para utilizar o aplicativo.
+* **Isolamento de Domínio:** As regras de negócio matemáticas (como a definição do intervalo e a garantia de números únicos) não conhecem o Vue ou o DOM. Estão isoladas em classes puras no diretório `src/domain/`.
+* **Ausência de `else`:** Lógica fluida com retornos precoces (early returns).
+* **Encapsulamento:** Estados inválidos são prevenidos logo na instanciação das classes de domínio (fail-fast).
+* **Testabilidade:** A separação de conceitos permite que a regra do sorteio seja integralmente testada de forma unitária sem depender da interface gráfica.
 
-Tecnologias utilizadas
-----------------------
+## 📦 Instalação e Execução
 
-*   HTML
-*   CSS
-*   JavaScript
-*   Tailwind CSS
-*   Clipboard.js
+Para rodar o projeto localmente, siga os passos abaixo:
 
-Instalação
-----------
+1. Clone o repositório:
+```bash
+git clone https://github.com/luizhanauer/sorteador.git
+```
 
-Não é necessário instalação para usar este manipulador de listas . Basta baixar os arquivos e abri-los em seu navegador.
+2. Acesse a pasta do projeto:
+
+```bash
+cd sorteador
+```
+
+3. Instale as dependências:
+
+```bash
+npm install
+```
+
+4. Execute o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+A aplicação estará disponível em `http://localhost:5173`.
+
+## 🧪 Como rodar os testes
+
+Os testes unitários da camada de domínio foram escritos com Vitest. Para executá-los em modo de observação (watch), rode:
+
+```bash
+npm run test
+```
+
+Para executar apenas uma vez (para CI/CD, por exemplo):
+
+```bash
+npx vitest run
+```
+
+---
 
 Contribuição
 ------------
